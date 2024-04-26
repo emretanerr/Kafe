@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anasayfa</title>
+    <link rel="stylesheet" href="i_style.css">
+</head>
+<body>
+    <div class="ustbar">
+        <div class="justwannadie"></div>
+        <a href="anasayfa.html"><p class="mp1">Merter tatlı</p></a>
+        <a href="sepet.html"><p class="mp2">Sepet</p></a>
+
+        <!-- Ürünler -->
+<div class="moj">
+    <h2 id="icc">Ürün Adı: Mojito</h2>
+    <p class="f">Fiyat: ₺180.00</p>
+    <button class="btn" onclick="addToCart(1)">Sepete Ekle</button>
+</div>
+
+<div class="mar">
+    <h2 id="icc">Ürün Adı: Margarita</h2>
+    <p class="f">Fiyat: ₺90.00</p>
+    <button class="btn" onclick="addToCart(2)">Sepete Ekle</button>
+</div>
+
+<div class="bm">
+    <h2 id="icc">Ürün Adı: Bloody Marry</h2>
+    <p class="f">Fiyat: ₺130.00</p>
+    <button class="btn" onclick="addToCart(3)">Sepete Ekle</button>
+</div>
+
+<div class="kola">
+    <h2 id="icc">Ürün Adı: Coca Cola</h2>
+    <p class="f">Fiyat: ₺85.00</p>
+    <button class="btn" onclick="addToCart(4)">Sepete Ekle</button>
+</div>
+
+<div class="bp">
+    <h2 id="icc">Ürün Adı: Beypazarı</h2>
+    <p class="f">Fiyat: ₺114.00</p>
+    <button class="btn" onclick="addToCart(5)">Sepete Ekle</button>
+</div>
+
+<div class="ayr">
+    <h2 id="icc"> Ürün Adı: Ayran</h2>
+    <p class="f"> Fiyat: ₺60.00 </p>
+    <button class="btn" onclick="addToCart(6)">Sepete Ekle</button>
+</div>
+
+<script>
+// Sepete ürün ekleme işlevi
+function addToCart(productId) {
+    // Örnek ürün bilgileri
+    var products = [
+        { id: 1, name: "Mojito", price: 180.00 },
+        { id: 2, name: "Magnolya", price: 90.00 },
+        { id: 3, name: "Triliçe", price: 130.00 },
+        { id: 4, name: "Ekler", price: 85.00 },
+        { id: 5, name: "Profiterol", price: 114.00 },
+        { id: 6, name: "Ayran", price: 20.00 },
+    ];
+
+    // Sepetin depolandığı yer (örneğin: tarayıcı yerel depolama)
+    var cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Ürünü sepete ekle
+    var selectedProduct = products.find(product => product.id === productId);
+    cart.push(selectedProduct);
+
+    // Sepeti güncelle
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Kullanıcıya bilgi ver
+    alert('Ürün sepete eklendi!');
+}
+</script>
+</div>
+<div class="justwannadie"></div>
+<p class="kok">Kokteyller</p>  
+</body>
+</html>
