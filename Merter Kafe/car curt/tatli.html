@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anasayfa</title>
+    <link rel="stylesheet" href="t_style.css">
+</head>
+<body>
+    <div class="ustbar">
+        <div class="justwannadie"></div>
+        <a href="anasayfa.html"><p class="mp1">Merter tatlı</p></a>
+        <a href="sepet.html"><p class="mp2">Sepet</p></a>
+    </div>
+    <!-- Ürünler -->
+<div id="kun">
+    <h2 id="tatl">Ürün Adı: Künefe</h2>
+    <p class="f">Fiyat: ₺180.00</p>
+    <button class="btn" onclick="addToCart(1)">Sepete Ekle</button>
+</div>
+
+<div id="mag">
+    <h2 id="tatl">Ürün Adı: Magnolya</h2>
+    <p class="f">Fiyat: ₺90.00</p>
+    <button class="btn" onclick="addToCart(2)">Sepete Ekle</button>
+</div>
+
+<div id="ekl">
+    <h2 id="tatl">Ürün Adı: Ekler </h2>
+    <p class="f">Fiyat: ₺130.00</p>
+    <button class="btn" onclick="addToCart(3)">Sepete Ekle</button>
+</div>
+
+<div id="tri">
+    <h2 id="tatl">Ürün Adı: Triliçe</h2>
+    <p class="f">Fiyat: ₺85.00</p>
+    <button class="btn" onclick="addToCart(4)">Sepete Ekle</button>
+</div>
+
+<div id="pro">
+    <h2 id="tatl">Ürün Adı: Profiterol</h2>
+    <p class="f">Fiyat: ₺114.00</p>
+    <button class="btn" onclick="addToCart(5)">Sepete Ekle</button>
+</div>
+
+<script>
+// Sepete ürün ekleme işlevi
+function addToCart(productId) {
+    // Örnek ürün bilgileri
+    var products = [
+        { id: 1, name: "Künefe", price: 180.00 },
+        { id: 2, name: "Magnolya", price: 90.00 },
+        { id: 3, name: "Triliçe", price: 130.00 },
+        { id: 4, name: "Ekler", price: 85.00 },
+        { id: 5, name: "Profiterol", price: 114.00 }
+    ];
+
+    // Sepetin depolandığı yer (örneğin: tarayıcı yerel depolama)
+    var cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Ürünü sepete ekle
+    var selectedProduct = products.find(product => product.id === productId);
+    cart.push(selectedProduct);
+
+    // Sepeti güncelle
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Kullanıcıya bilgi ver
+    alert('Ürün sepete eklendi!');
+}
+</script>
+ 
+</body>
+</html>
